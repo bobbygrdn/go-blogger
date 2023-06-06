@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link th:href="@{/pages.css}" type="text/css" rel="stylesheet">
+    <title>Go Blogger!</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <i class="bi bi-file-post"></i>
+            <h1>Go Blogger!</h1>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/create}">Create Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" th:href="@{/}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <article>
+
+        <div class="blogContainer my-2">
+            <div class="row row-cols-2">
+                <div th:each="blogPost : ${blogPosts}" class="col mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title" th:text="${blogPost.title}"></h2>
+                            <p class="card-text" th:text="${#strings.abbreviate(blogPost.content, 100)}"></p>
+                            <a th:href="@{/blog/{id}(id=${blogPost.id})}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </article>
+
+    <footer class="footer d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <p>&copy; 2023 Go Blogger!. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

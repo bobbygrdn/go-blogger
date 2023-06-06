@@ -1,0 +1,143 @@
+body {
+    background: linear-gradient(to bottom left, #2193b0, #6dd5ed);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--primary-text);
+}
+
+:root {
+    --primary-text: #f5f5f5;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+h1 {
+    pointer-events: none;
+}
+
+.container {
+    width: 50%;
+    height: auto;
+    padding-bottom: 1em;
+}
+
+.blogContainer {
+    width: 90%;
+    height: auto;
+    align-self: center;
+}
+
+.blogText {
+    font-size: 1.2em;
+}
+
+.card-title,
+.card-text,
+.blogText,
+.blogTitle {
+    pointer-events: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    height: 6em;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-bottom: 2em;
+}
+
+.navbar-nav,
+.login {
+    position: absolute;
+    right: 1em;
+}
+
+.navbar a,
+#blogTitleHelp {
+    color: var(--primary-text);
+}
+
+#blogTitleHelp {
+    pointer-events: none;
+}
+
+.bi.bi-file-post {
+    position: absolute;
+    left: 1em;
+    color: var(--primary-text);
+    font-size: 4em;
+}
+
+.jumbotron {
+    pointer-events: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
+
+.landingFooter,
+.createFooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.feature-card {
+    text-align: center;
+    height: 14em;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #f5f5f5;
+    pointer-events: none;
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.loginContainer {
+    margin-top: 10em;
+    width: 25%;
+}
+
+footer {
+    height: 4em;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #f5f5f5;
+    font-size: 1.2em;
+    pointer-events: none;
+}

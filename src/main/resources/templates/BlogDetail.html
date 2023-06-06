@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link th:href="@{/pages.css}" type="text/css" rel="stylesheet">
+    <title th:text="${blogPost.title}"></title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <h1>Go Blogger!</h1>
+            <i class="bi bi-file-post"></i>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div th:if="${blogPost}">
+                    <h2 class="blogTitle" th:text="${blogPost.title}"></h2>
+                    <p class="blogText" th:text="${blogPost.content}"></p>
+                    <p class="blogText">Author: <span th:text="${blogPost.author.username}"></span></p>
+                    <p class="blogText">Publication Date: <span th:text="${blogPost.publicationDate}"></span></p>
+                </div>
+                <div th:unless="${blogPost}">
+                    <p>No blog post found.</p>
+                </div>
+                <a th:href="@{/home}" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <p>&copy; 2023 Go Blogger!. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
