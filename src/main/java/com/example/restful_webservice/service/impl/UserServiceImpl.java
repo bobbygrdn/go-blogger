@@ -2,6 +2,8 @@ package com.example.restful_webservice.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +11,6 @@ import com.example.restful_webservice.exception.ResourceNotFoundException;
 import com.example.restful_webservice.model.User;
 import com.example.restful_webservice.repository.UserRepository;
 import com.example.restful_webservice.service.UserService;
-
-import jakarta.servlet.http.HttpSession;
 
 @Service
 public class UserServiceImpl implements UserService {

@@ -2,9 +2,9 @@ package com.example.restful_webservice.service;
 
 import java.util.List;
 
-import com.example.restful_webservice.model.User;
+import javax.servlet.http.HttpSession;
 
-import jakarta.servlet.http.HttpSession;
+import com.example.restful_webservice.model.User;
 
 public interface UserService {
 

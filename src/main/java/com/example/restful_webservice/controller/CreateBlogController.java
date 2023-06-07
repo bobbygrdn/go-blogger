@@ -13,7 +13,7 @@ import com.example.restful_webservice.model.User;
 import com.example.restful_webservice.service.BlogPostService;
 import com.example.restful_webservice.service.UserService;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class CreateBlogController {

@@ -1,6 +1,7 @@
 package com.example.restful_webservice.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import lombok.Data;
 
 @Entity

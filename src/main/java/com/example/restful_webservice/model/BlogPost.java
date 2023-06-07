@@ -2,7 +2,7 @@ package com.example.restful_webservice.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity
