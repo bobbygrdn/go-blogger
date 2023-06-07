@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import com.example.restful_webservice.service.UserService;
 
 import javax.servlet.http.HttpSession;
 
+@Transactional
 @Controller
 public class CreateBlogController {
 
@@ -33,9 +35,11 @@ public class CreateBlogController {
     public String createBlog(HttpSession session, @RequestParam("title") String title,
             @RequestParam("content") String content) {
 
-        String username = (String) session.getAttribute("username");
+        Object username = session.getAttribute("username");
+        System.out.println(username);
 
-        User user = userService.getUser(username);
+        User user = userService.getUser((String) username);
+        System.out.println(user);
 
         // Create a new Blog object
         BlogPost blog = new BlogPost();
@@ -43,6 +47,7 @@ public class CreateBlogController {
         blog.setContent(content);
         blog.setPublicationDate(LocalDateTime.now());
         blog.setAuthor(user);
+        System.out.println(blog);
 
         // Save the blog post to the database
         blogPostService.createBlogPost(blog);

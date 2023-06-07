@@ -1,14 +1,18 @@
 package com.example.restful_webservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.restful_webservice.model.User;
-import com.example.restful_webservice.repository.UserRepository;
+import com.example.restful_webservice.service.UserService;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +20,10 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @GetMapping("/login")
     public String ShowLogin(Model model) {
@@ -27,16 +34,23 @@ public class LoginController {
     public String login(HttpSession session, @RequestParam("username") String username,
             @RequestParam("password") String password,
             Model model) {
-        // Perform validation and authentication logic
-        User user = userRepository.findByUsername(username);
-        if (user != null && user.getPassword().equals(password)) {
-            // Successful login
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(username, password));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            System.out.println("Username set in session: " + username);
             session.setAttribute("username", username);
-            return "redirect:/home"; // Redirect to the dashboard page after successful login
-        } else {
-            // Invalid credentials
+            return "redirect:/home";
+        } catch (AuthenticationException e) {
             model.addAttribute("error", "Invalid username or password");
-            return "login"; // Return the login template or view name with an error message
+            return "login";
         }
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
+    }
+
 }
