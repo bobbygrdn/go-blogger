@@ -40,20 +40,20 @@ public class BlogPostController {
     }
 
     @PutMapping("blogposts/{id}")
-    public ResponseEntity<BlogPost> updateBlogPost(@PathVariable("id") long blogPostId,
+    public String updateBlogPost(@PathVariable("id") long blogPostId,
             @RequestBody BlogPost blogPost) {
 
-        BlogPost existingBlogPost = blogPostService.updateBlogPost(blogPostId, blogPost);
+        blogPostService.updateBlogPost(blogPostId, blogPost);
 
-        return ResponseEntity.ok(existingBlogPost);
+        return "redirect:/myBlogs";
     }
 
     @DeleteMapping("blogposts/{id}")
-    public ResponseEntity<String> deleteBlotPost(@PathVariable("id") long blogPostId) {
+    public String deleteBlotPost(@PathVariable("id") long blogPostId) {
 
         blogPostService.deleteBlogPost(blogPostId);
 
-        return ResponseEntity.ok("Blog post deleted");
+        return "redirect:/myBlogs";
     }
 
 }
