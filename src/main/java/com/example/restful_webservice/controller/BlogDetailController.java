@@ -18,7 +18,7 @@ public class BlogDetailController {
     private BlogPostRepository blogPostRepository;
 
     @GetMapping("/blog/{id}")
-    public String showBlogDetail(@PathVariable("id") long id, Model model) {
+    public String showBlogDetail(Model model, @PathVariable("id") long id) {
         Optional<BlogPost> blogPostOptional = blogPostRepository.findById(id);
 
         if (blogPostOptional.isPresent()) {
@@ -26,6 +26,6 @@ public class BlogDetailController {
             model.addAttribute("blogPost", blogPost);
         }
 
-        return "BlogDetail";
+        return "blogDetail";
     }
 }
