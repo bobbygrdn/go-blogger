@@ -3,6 +3,8 @@ package com.example.restful_webservice.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,11 +37,11 @@ public class CreateBlogController {
     public String createBlog(HttpSession session, @RequestParam("title") String title,
             @RequestParam("content") String content) {
 
-        Object username = session.getAttribute("username");
-        System.out.println(username);
+        UserDetails userPrincipal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        User user = userService.getUser((String) username);
-        System.out.println(user);
+        String username = userPrincipal.getUsername();
+
+        User user = userService.getUser(username);
 
         // Create a new Blog object
         BlogPost blog = new BlogPost();
@@ -47,7 +49,6 @@ public class CreateBlogController {
         blog.setContent(content);
         blog.setPublicationDate(LocalDateTime.now());
         blog.setAuthor(user);
-        System.out.println(blog);
 
         // Save the blog post to the database
         blogPostService.createBlogPost(blog);
