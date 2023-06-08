@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link href="../pages.css" type="text/css" rel="stylesheet" />
+    <title>Go Blogger!</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <i class="bi bi-file-post"></i>
+            <h1>Go Blogger!</h1>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" th:href="@{/}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 id="title" style="text-align: center;">Create Blog post</h1>
+    <article class="editPage">
+
+        <div class="container editForm">
+            <form th:action="@{/api/v1//blogposts/{id}(id=${blogPost.id})}" method="put">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="5" th:utext="${content}"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <div th:if="${error}" class="alert alert-danger">
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+
+        <div class="container editPreview">
+            <div class="row">
+                <div class="col-md-12">
+                    <div th:if="${blogPost}">
+                        <h2 class="blogTitle" th:text="${blogPost.title}"></h2>
+                        <p class="blogText" th:text="${blogPost.content}"></p>
+                        <p class="blogText">Author: <span th:text="${blogPost.author.username}"></span></p>
+                        <p class="blogText">Publication Date: <span th:text="${blogPost.publicationDate}"></span></p>
+                    </div>
+                    <div th:unless="${blogPost}">
+                        <p>No blog post found.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="createFooter d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <p>&copy; 2023 Go Blogger!. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
