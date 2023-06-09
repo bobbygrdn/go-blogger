@@ -27,8 +27,6 @@ public class MyBlogsController {
 
         List<BlogPost> usersBlogPosts = blogPostRepository.findByAuthorUsername(username);
 
-        System.out.println(usersBlogPosts);
-
         model.addAttribute("usersBlogPosts", usersBlogPosts);
         model.addAttribute("username", username);
 
