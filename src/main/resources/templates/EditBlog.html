@@ -37,7 +37,7 @@
     <article class="editPage">
 
         <div class="container editForm">
-            <form th:action="@{/api/v1//blogposts/{id}(id=${blogPost.id})}" method="put">
+            <form th:action="@{/editBlog/{id}(id=${blogPost.id})}" method="put">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" required>
