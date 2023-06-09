@@ -1,54 +1,93 @@
 package com.example.restful_webservice.blog;
 
-import java.util.List;
+import java.time.LocalDateTime;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
-@RequestMapping("api/v1")
+import com.example.restful_webservice.user.User;
+import com.example.restful_webservice.user.UserService;
+
+@Transactional
+@Controller
 public class BlogPostController {
 
     @Autowired
     private BlogPostService blogPostService;
 
-    @PostMapping("blogposts")
-    public BlogPost createBlogPost(@RequestBody BlogPost blogPost) {
+    @Autowired
+    private UserService userService;
 
-        return blogPostService.createBlogPost(blogPost);
-
+    @GetMapping("/create")
+    public String createBlogPage() {
+        return "createBlog";
     }
 
-    @GetMapping("blogposts")
-    public List<BlogPost> getBlogPosts() {
+    @PostMapping("/create")
+    public String createBlog(HttpSession session, @RequestParam("title") String title,
+            @RequestParam("content") String content) {
 
-        return blogPostService.getAllBlogPosts();
+        UserDetails userPrincipal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        String username = userPrincipal.getUsername();
+
+        User user = userService.getUser(username);
+
+        // Create a new Blog object
+        BlogPost blog = new BlogPost();
+        blog.setTitle(title);
+        blog.setContent(content);
+        blog.setPublicationDate(LocalDateTime.now());
+        blog.setAuthor(user);
+
+        // Save the blog post to the database
+        blogPostService.createBlogPost(blog);
+
+        // Redirect to the home page
+        return "redirect:/home";
     }
 
-    @GetMapping("blogposts/{id}")
-    public ResponseEntity<BlogPost> getBlogPost(@PathVariable("id") long blogPostId) {
+    @GetMapping("/deleteBlog/{id}")
+    public String DeleteBlog(@PathVariable long id) {
+        BlogPost blogPost = blogPostService.getBlogPost(id);
 
-        BlogPost existingBlogPost = blogPostService.getBlogPost(blogPostId);
-
-        return ResponseEntity.ok(existingBlogPost);
-
-    }
-
-    @PutMapping("blogposts/{id}")
-    public String updateBlogPost(@PathVariable("id") long blogPostId,
-            @RequestBody BlogPost blogPost) {
-
-        blogPostService.updateBlogPost(blogPostId, blogPost);
+        if (blogPost != null) {
+            this.blogPostService.deleteBlogPost(id);
+        }
 
         return "redirect:/myBlogs";
     }
 
-    @DeleteMapping("blogposts/{id}")
-    public String deleteBlotPost(@PathVariable("id") long blogPostId) {
+    @GetMapping("/editBlog/{id}")
+    public String editBlog(@PathVariable("id") long id, Model model) {
 
-        blogPostService.deleteBlogPost(blogPostId);
+        BlogPost blogPost = blogPostService.getBlogPost(id);
+
+        model.addAttribute("blogPost", blogPost);
+
+        return "editBlog";
+    }
+
+    @PostMapping("/editBlog/{id}")
+    public String updateBlog(@PathVariable("id") long id, @RequestParam("title") String title,
+            @RequestParam("content") String content, Model model) {
+
+        BlogPost existingBlogPost = blogPostService.getBlogPost(id);
+
+        existingBlogPost.setTitle(title);
+        existingBlogPost.setContent(content);
+
+        blogPostService.updateBlogPost(id, existingBlogPost);
 
         return "redirect:/myBlogs";
     }
