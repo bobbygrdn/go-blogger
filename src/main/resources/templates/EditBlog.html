@@ -40,12 +40,13 @@
             <form th:action="@{/editBlog/{id}(id=${blogPost.id})}" method="post">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" required>
+                    <input type="text" class="form-control" id="titleInput" th:value="${blogPost.title}" name="title"
+                        required>
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
-                    <textarea class="form-control" id="content" name="content" rows="5" th:utext="${content}"
-                        required></textarea>
+                    <textarea class="form-control" style="overflow-y: scroll; resize: none;" id="content" name="content"
+                        rows="16" th:text="${blogPost.content}" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -58,7 +59,7 @@
         <div class="container editPreview">
             <div class="row">
                 <div class="col-md-12">
-                    <div th:if="${blogPost}">
+                    <div class="previewEntities" th:if="${blogPost}">
                         <h2 class="blogTitle" th:text="${blogPost.title}"></h2>
                         <p class="blogText" th:text="${blogPost.content}"></p>
                         <p class="blogText">Author: <span th:text="${blogPost.author.username}"></span></p>
@@ -78,6 +79,28 @@
         </div>
     </footer>
 
+    <script>
+        // Get references to the input fields and the preview elements
+        const titleInput = document.querySelector("#titleInput");
+        console.log(titleInput);
+        const contentInput = document.querySelector("#content");
+        console.log(contentInput);
+        const previewTitle = document.querySelector(".previewEntities").childNodes[1];
+        console.log(previewTitle);
+        const previewContent = document.querySelector(".previewEntities").childNodes[3];
+        console.log(previewContent);
+
+        // Add event listeners to the input fields
+        titleInput.addEventListener('input', updatePreview);
+        contentInput.addEventListener('input', updatePreview);
+
+        // Define the updatePreview function
+        function updatePreview() {
+            // Trigger a Thymeleaf re-evaluation of the preview elements
+            previewTitle.textContent = titleInput.value;
+            previewContent.textContent = contentInput.value;
+        }
+    </script>
 
 </body>
 
