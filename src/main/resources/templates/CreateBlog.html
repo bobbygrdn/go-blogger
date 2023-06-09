@@ -47,8 +47,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
-                    <textarea class="form-control" id="content" name="content" rows="5" th:utext="${content}"
-                        required></textarea>
+                    <textarea class="form-control" id="content" name="content" rows="16"
+                        style="overflow-y: scroll; resize: none;" th:utext="${content}" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
