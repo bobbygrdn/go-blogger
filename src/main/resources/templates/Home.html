@@ -40,7 +40,7 @@
         <div class="blogContainer my-2">
             <div class="row row-cols-2">
                 <div th:each="blogPost : ${blogPosts}" class="col mb-3">
-                    <div class="card">
+                    <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title" th:text="${blogPost.title}"></h2>
                             <p class="card-text" th:text="${#strings.abbreviate(blogPost.content, 400)}"></p>
