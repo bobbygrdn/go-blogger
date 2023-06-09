@@ -2,8 +2,6 @@ package com.example.restful_webservice.service.impl;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -74,14 +72,6 @@ public class UserServiceImpl implements UserService {
         }
 
         userRepository.delete(existingUser);
-    }
-
-    public String getCurrentUsername(HttpSession session) {
-        String username = (String) session.getAttribute("username");
-        if (username != null) {
-            return username;
-        }
-        return null; // or handle the case when the user is not authenticated
     }
 
 }
