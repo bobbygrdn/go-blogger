@@ -25,12 +25,12 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container blogContainer">
         <div class="row">
             <div class="col-md-12">
                 <div th:if="${blogPost}">
                     <h2 class="blogTitle" th:text="${blogPost.title}"></h2>
-                    <p class="blogText" th:text="${blogPost.content}"></p>
+                    <pre class="blogText" th:text="${blogPost.content}"></pre>
                     <p class="blogText">Author: <span th:text="${blogPost.author.username}"></span></p>
                     <p class="blogText">Publication Date: <span th:text="${blogPost.publicationDate}"></span></p>
                 </div>
