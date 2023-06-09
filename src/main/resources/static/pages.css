@@ -11,6 +11,32 @@ body {
     --primary-text: #f5f5f5;
 }
 
+#show-password {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    margin-top: .5em;
+    margin-right: .5em;
+    transform: translateY(5px);
+}
+
+#show-password:checked {
+    background-color: #f32121;
+    border-color: #f36060;
+    border: 1px solid #000;
+}
+
+#show-password:focus {
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+}
+
 article {
     display: flex;
     flex-direction: column;
@@ -39,6 +65,7 @@ h1 {
     white-space: pre-wrap;
     overflow: hidden;
     height: fit-content;
+    text-align: left;
 }
 
 .card-title,
