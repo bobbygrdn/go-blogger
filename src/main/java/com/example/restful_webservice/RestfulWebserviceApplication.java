@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.example.restful_webservice.service.UserService;
+import com.example.restful_webservice.user.UserService;
 
 @SpringBootApplication
 public class RestfulWebserviceApplication {

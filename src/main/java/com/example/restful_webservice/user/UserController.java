@@ -1,13 +1,10 @@
-package com.example.restful_webservice.controller.rest;
+package com.example.restful_webservice.user;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.example.restful_webservice.model.User;
-import com.example.restful_webservice.service.UserService;
 
 @RestController
 @RequestMapping("api/v1")

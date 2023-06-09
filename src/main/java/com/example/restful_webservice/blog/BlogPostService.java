@@ -1,8 +1,6 @@
-package com.example.restful_webservice.service;
+package com.example.restful_webservice.blog;
 
 import java.util.List;
-
-import com.example.restful_webservice.model.BlogPost;
 
 public interface BlogPostService {
 

@@ -1,12 +1,9 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.blog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import com.example.restful_webservice.model.BlogPost;
-import com.example.restful_webservice.service.BlogPostService;
 
 @Controller
 public class EditBlogController {
@@ -24,18 +21,16 @@ public class EditBlogController {
         return "editBlog";
     }
 
-    @PutMapping("/editBlog/{id}")
+    @PostMapping("/editBlog/{id}")
     public String updateBlog(@PathVariable("id") long id, @RequestParam("title") String title,
-            @RequestParam("content") String content) {
+            @RequestParam("content") String content, Model model) {
 
         BlogPost existingBlogPost = blogPostService.getBlogPost(id);
 
-        if (existingBlogPost == null) {
-            return "redirect:/myBlogs";
-        }
-
         existingBlogPost.setTitle(title);
         existingBlogPost.setContent(content);
+
+        blogPostService.updateBlogPost(id, existingBlogPost);
 
         return "redirect:/myBlogs";
     }

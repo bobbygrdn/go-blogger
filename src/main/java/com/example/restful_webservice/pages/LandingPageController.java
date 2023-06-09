@@ -1,4 +1,4 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.pages;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

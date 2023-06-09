@@ -1,4 +1,4 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.pages;
 
 import javax.servlet.http.HttpSession;
 
@@ -42,9 +42,8 @@ public class LoginController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/login";
+    public String logout() {
+        return "redirect:/";
     }
 
 }

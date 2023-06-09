@@ -1,4 +1,4 @@
-package com.example.restful_webservice.service.impl;
+package com.example.restful_webservice.user;
 
 import java.util.List;
 
@@ -7,9 +7,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.restful_webservice.exception.ResourceNotFoundException;
-import com.example.restful_webservice.model.User;
-import com.example.restful_webservice.repository.UserRepository;
-import com.example.restful_webservice.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

@@ -1,4 +1,4 @@
-package com.example.restful_webservice.service.impl;
+package com.example.restful_webservice.blog;
 
 import java.util.List;
 
@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.restful_webservice.exception.ResourceNotFoundException;
-import com.example.restful_webservice.model.BlogPost;
-import com.example.restful_webservice.repository.BlogPostRepository;
-import com.example.restful_webservice.service.BlogPostService;
 
 @Service
 public class BlogPostServiceImpl implements BlogPostService {

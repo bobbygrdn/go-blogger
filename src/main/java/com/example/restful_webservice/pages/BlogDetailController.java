@@ -1,6 +1,4 @@
-package com.example.restful_webservice.controller;
-
-import java.util.Optional;
+package com.example.restful_webservice.pages;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,22 +6,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.restful_webservice.model.BlogPost;
-import com.example.restful_webservice.repository.BlogPostRepository;
+import com.example.restful_webservice.blog.BlogPost;
+import com.example.restful_webservice.blog.BlogPostService;
 
 @Controller
 public class BlogDetailController {
 
     @Autowired
-    private BlogPostRepository blogPostRepository;
+    private BlogPostService blogPostService;
 
     @GetMapping("/blog/{id}")
     public String showBlogDetail(Model model, @PathVariable("id") long id) {
-        Optional<BlogPost> blogPostOptional = blogPostRepository.findById(id);
+        BlogPost existingBlogPost = blogPostService.getBlogPost(id);
 
-        if (blogPostOptional.isPresent()) {
-            BlogPost blogPost = blogPostOptional.get();
-            model.addAttribute("blogPost", blogPost);
+        if (existingBlogPost != null) {
+            model.addAttribute("blogPost", existingBlogPost);
         }
 
         return "blogDetail";

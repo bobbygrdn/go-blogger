@@ -1,4 +1,4 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.blog;
 
 import java.time.LocalDateTime;
 
@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.restful_webservice.model.BlogPost;
-import com.example.restful_webservice.model.User;
-import com.example.restful_webservice.service.BlogPostService;
-import com.example.restful_webservice.service.UserService;
+import com.example.restful_webservice.user.User;
+import com.example.restful_webservice.user.UserService;
 
 import javax.servlet.http.HttpSession;
 

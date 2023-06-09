@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -42,7 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                                 .defaultSuccessUrl("/home")
                                                 .permitAll())
                                 .logout(logout -> logout
-                                                .permitAll());
+                                .logoutSuccessHandler(new SimpleUrlLogoutSuccessHandler())
+                                                .logoutSuccessUrl("/logout"));
         }
 
         @Override

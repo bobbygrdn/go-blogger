@@ -1,4 +1,4 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.pages;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.restful_webservice.model.BlogPost;
-import com.example.restful_webservice.repository.BlogPostRepository;
+import com.example.restful_webservice.blog.BlogPost;
+import com.example.restful_webservice.blog.BlogPostRepository;
 
 @Controller
 public class MyBlogsController {

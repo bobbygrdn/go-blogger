@@ -1,11 +1,8 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.blog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import com.example.restful_webservice.model.BlogPost;
-import com.example.restful_webservice.service.BlogPostService;
 
 @Controller
 public class DeleteBlogController {

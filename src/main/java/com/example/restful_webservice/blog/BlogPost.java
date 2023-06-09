@@ -1,8 +1,11 @@
-package com.example.restful_webservice.model;
+package com.example.restful_webservice.blog;
 
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+
+import com.example.restful_webservice.user.User;
+
 import lombok.Data;
 
 @Entity

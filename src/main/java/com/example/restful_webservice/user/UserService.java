@@ -1,8 +1,6 @@
-package com.example.restful_webservice.service;
+package com.example.restful_webservice.user;
 
 import java.util.List;
-
-import com.example.restful_webservice.model.User;
 
 public interface UserService {
 

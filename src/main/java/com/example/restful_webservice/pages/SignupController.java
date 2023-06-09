@@ -1,4 +1,4 @@
-package com.example.restful_webservice.controller;
+package com.example.restful_webservice.pages;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.restful_webservice.model.User;
-import com.example.restful_webservice.service.UserService;
+import com.example.restful_webservice.user.User;
+import com.example.restful_webservice.user.UserService;
 
 @Controller
 public class SignupController {

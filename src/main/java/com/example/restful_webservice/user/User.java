@@ -1,4 +1,4 @@
-package com.example.restful_webservice.model;
+package com.example.restful_webservice.user;
 
 import java.util.Collection;
 import java.util.Collections;
