@@ -36,6 +36,9 @@ h1 {
 
 .blogText {
     font-size: 1.2em;
+    white-space: pre-wrap;
+    overflow: hidden;
+    height: fit-content;
 }
 
 .card-title,
@@ -170,11 +173,15 @@ footer {
     color: #f5f5f5;
     font-size: 1.2em;
     pointer-events: none;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
 
 .container p {
     margin-bottom: 0;
+}
+
+.blogContainer {
+    min-height: 75.5vh;
 }
