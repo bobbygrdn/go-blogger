@@ -44,6 +44,7 @@
                     <div class="invalid-feedback">
                         Please enter a password with a minimum of 8 characters.
                     </div>
+                    <label><input type="checkbox" id="show-password">Show Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Signup</button>
             </form>
@@ -60,6 +61,20 @@
             <p>&copy; 2023 Go Blogger!. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const passwordInput = document.querySelector("#password");
+        const showPasswordCheckbox = document.querySelector("#show-password")
+
+        showPasswordCheckbox.addEventListener("click", () => {
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+
+    </script>
 
 </body>
 

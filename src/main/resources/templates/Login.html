@@ -36,6 +36,7 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
+                    <label><input type="checkbox" id="show-password">Show Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
@@ -53,6 +54,20 @@
         </div>
     </footer>
 
+
+    <script>
+        const passwordInput = document.querySelector("#password");
+        const showPasswordCheckbox = document.querySelector("#show-password")
+
+        showPasswordCheckbox.addEventListener("click", () => {
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+
+    </script>
 </body>
 
 </html>
