@@ -61,9 +61,7 @@
                 <div class="col-md-12">
                     <div class="previewEntities" th:if="${blogPost}">
                         <h2 class="blogTitle" th:text="${blogPost.title}"></h2>
-                        <p class="blogText" th:text="${blogPost.content}"></p>
-                        <p class="blogText">Author: <span th:text="${blogPost.author.username}"></span></p>
-                        <p class="blogText">Publication Date: <span th:text="${blogPost.publicationDate}"></span></p>
+                        <pre class="blogText" th:text="${blogPost.content}"></p>
                     </div>
                     <div th:unless="${blogPost}">
                         <p>No blog post found.</p>
