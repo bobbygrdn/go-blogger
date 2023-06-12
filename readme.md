@@ -1,17 +1,18 @@
 
-# Go Blogger
-
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+# Go Blogger 
+![Go Blogger Logo](https://github.com/bobbygrdn/go-blogger/assets/96712943/89d75062-043f-49da-90b4-33eb06b8de51)
 
 A blog application that allows the tech community to stay up-to-date with the latests trends, news and technologies.
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Landing Page](https://github.com/bobbygrdn/go-blogger/assets/96712943/844c64a7-dcf1-4dbc-97a2-34f98e0bf797)
+![Login Page](https://github.com/bobbygrdn/go-blogger/assets/96712943/5389c5ac-3ab6-4541-ba43-54cffa6fc7d1)
+![Home Page](https://github.com/bobbygrdn/go-blogger/assets/96712943/23dc3362-d05c-453c-8c39-ffda231e2f94)
 
 ## Demo
 
-Insert gif or link to demo
+https://github.com/bobbygrdn/go-blogger/assets/96712943/c050e979-ac99-41d8-b3d8-c0f607a6a896
 
 ## Features
 
