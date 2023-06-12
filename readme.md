@@ -7,11 +7,13 @@ A blog application that allows the tech community to stay up-to-date with the la
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Landing Page](https://github.com/bobbygrdn/go-blogger/assets/96712943/844c64a7-dcf1-4dbc-97a2-34f98e0bf797)
+![Login Page](https://github.com/bobbygrdn/go-blogger/assets/96712943/5389c5ac-3ab6-4541-ba43-54cffa6fc7d1)
+![Home Page](https://github.com/bobbygrdn/go-blogger/assets/96712943/23dc3362-d05c-453c-8c39-ffda231e2f94)
 
 ## Demo
 
-Insert gif or link to demo
+https://github.com/bobbygrdn/go-blogger/assets/96712943/c050e979-ac99-41d8-b3d8-c0f607a6a896
 
 ## Features
 
