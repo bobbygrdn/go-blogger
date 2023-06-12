@@ -1,7 +1,7 @@
 
 # Go Blogger
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Go Blogger Logo](https://github.com/bobbygrdn/go-blogger/assets/96712943/89d75062-043f-49da-90b4-33eb06b8de51)
 
 A blog application that allows the tech community to stay up-to-date with the latests trends, news and technologies.
 
